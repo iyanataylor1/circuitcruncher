@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Playfair+Display&family=Poppins&family=Press+Start+2P&display=swap');
+
+.colors {
+    color: rgb(1, 66, 30);
+    color: rgba(0, 0, 0, 0.418);
+    color: rgb(247, 247, 255);
+    color: rgb(14, 4, 83);
+    color: rgb(209, 122, 9);
+    color: rgb(168, 8, 30);
+    color: rgba(143, 240, 208, 0.205);
+}
+/* new.css */
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgba(143, 240, 208, 0.205);
+    color: rgb(14, 4, 83);
+    margin: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: rgb(14, 4, 83);
+    color: rgb(108, 223, 184);
+    padding: 15px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 30px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 2px 10px;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+    margin-left: 30px;
+}
+
+nav a {
+    color: rgb(247, 247, 255);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover, nav a:focus {
+    color: rgb(241, 147, 23);
+    text-decoration: underline;
+}
+
+/* Glass-box Styles */
+.glass-box {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.418);
+}
+
+/* Registration Section Styles */
+#registration h2 {
+    color: #4285f4;
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 1.2em;
+}
+
+#registration p {
+    color: #db4437;
+}
+
+/* Play Section Styles */
+#play h2 {
+    color: #0f9d58;
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 1.2em;
+}
+
+/* Results Section Styles */
+#results h2 {
+    color: #db4437;
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 1.2em;
+}
+
+#results h3 {
+    color: rgb(14, 4, 83);
+    font-family: "Press Start 2P", sans-serif;
+    font-size: .9em;
+    padding: 20px;
+}
+
+#dateTimeArea h3 {
+    color: rgb(14, 4, 83);
+    font-family: "Press Start 2P", sans-serif;
+    font-size:.7em;
+}
+
+input, textarea{
+    font-family: 'Poppins', sans-serif;
+    border-color: rgb(14, 4, 83);
+}
+
+#ans {
+    font-family: "Press Start 2P", serif;
+    font-size: .9em;
+    color: #db4437;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+button {
+    margin-top: 10px;
+    margin-right: 20px;
+    font-family: "Press Start 2P", serif;
+    padding: 7px;
+    background-color: #c92313;
+    border-color: rgb(14, 4, 83);
+    color: rgb(247, 247, 255);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for the glow effect */
+}
+
+button:hover, button:focus {
+    background-color: rgba(143, 240, 208, 0.205);
+    border-color: #c92313;
+    color: rgb(14, 4, 83);
+    animation: glow is ease-in-out infinite;
+    box-shadow: 0 0 20px #c92313; /* Apply the glow effect on hover */
+}
+
+/* Glow animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #c92313; /* Initial glow effect */
+    }
+    50% {
+        box-shadow: 0 0 20px #c92313; /* Intermediate glow effect */
+    }
+    100% {
+        box-shadow: 0 0 5px #c92313; /* Final glow effect */
+    }
+}
+
+img {
+    max-width: 100%; /* This ensures that the image won't exceed the width of its container */
+    /*height: auto;     This maintains the aspect ratio of the image */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(14, 4, 83);
+    color: rgb(253, 201, 133);
+}
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+    /* Styles for screens smaller than 600px */
+    header {
+        font-size: 18px;
+    }
+
+    .glass-box {
+        margin: 10px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+    /* Styles for screens between 600px and 1024px */
+    header {
+        font-size: 24px;
+    }
+
+    .glass-box {
+        margin: 15px;
+    }
+}

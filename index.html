@@ -1,0 +1,243 @@
+<!DOCTYPE html >
+<html lang="en">
+    <head>
+        <title>Circuit Cruncher Multiplication Game</title>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!--css link-->
+        <link rel="stylesheet" type="text/css" href="new-style.css">
+
+        <!--js link-->
+        <script type="text/javascript" src="new-script.js"></script>
+    </head>
+
+    <body>
+
+        <!--Header containing game name and page navigation links-->
+        <header>
+            <h1>&#x1F916;Circuit Cruncher</h1>
+            <nav>
+                <ul>
+                    <li><a href="#registration">Register</a></li>
+                    <li><a href="#play">Play Game</a></li>
+                    <li><a href="#results">Results</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--beginning of registration section-->
+        <section class="glass-box" id="registration">
+
+            <!--TASK 1 Registration Form Section-->
+        <h2>&#x1F44B;Hello player, Register here &#8595;</h2>
+
+        <form action="#" method="post" id="regForm">
+            
+            <!--fieldset tag with all input fields-->
+            <fieldset>
+
+                <p><i>*All fields are required before you can play</i></p>
+
+                <label for="firstname">
+                    First Name:
+                    <input type="text" name="name" id="firstname" placeholder="3+ characters" required>
+                </label>
+
+                <br><br>
+                <label for="lastname">
+                    Last Name:
+                    <input type="text" name="name" id="lastname" placeholder="3+ characters" required>
+                </label>
+
+                <br><br>
+                <label for="dob">
+                    Birth Date:
+                    <input type="date" name="dob" id="dob" required>
+                </label>
+
+                <br><br>
+                <label for="age">
+                    Age:
+                    <input type="number" name="age" id="age" placeholder="disabled" disabled> <!--age will be calculated so no need to put required, if it isnt in the range of 8 to 12 the user wont go through-->
+                </label>
+
+                <br><br>
+                <label>
+                    Gender:
+                    <input type="radio" id="male" name="gender" value="male" required checked>
+                    <label for="male">Male</label>
+
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female">Female</label>
+                </label>
+
+                <br><br>
+                <label for="email">
+                    Email:
+                    <input type="email" name="email" id="email" placeholder="@gmail.com ONLY" required>
+                </label>
+            </fieldset>
+
+            <!--register button with register() function call (closes the form and enables the start and end buttons)-->
+            <button type="submit" onclick="register()" id="registerBtn">Register</button>
+
+            <!-- Additional buttons (replace "button1" and "button2" with actual IDs for Start and End Buttons) -->
+            <!--start triggers startGame which should open play area form (enable play area function) and generate numbers to enter (playGame function)-->
+            <button type="button" onclick="playGame()" id="start" disabled>Start</button>
+
+        <!--end of registration form-->
+        </form>
+
+        </section> <!--end of registration section-->
+
+        <!--beginning of play section-->
+        <section class="glass-box" id="play">
+
+            <form action="#" method="post" id="playAreaForm">
+
+                <h2>&#x1F3AE;PLAY GAME!</h2>
+                <p><i>*HOW TO PLAY: Upon clicking the [Start] button <br> Look out for the two numbers that will be given <br> in the boxes below. <br><br> When they come up, get multiplying! <br> Put your answer in the box at the bottom then, <br>click the [Check Answer] button to see if you got it right. <br><br>Don't worry if you didn't though, just try again. <br>We're here to learn and have fun! <br><br> To keep playing, click the [Next Equation] button</i></p>
+
+                <br><br>
+                <fieldset>
+                    <!--maybe add span tags around the number labels and give them space instead of the dashed line (same with the x between the input boxes)-->
+
+                    <div class="status"><span id="ans">Answer status shown here</span></div>
+
+                        <br>
+                        <input type="text" name="randonNum" id="firstNumber" readonly> 
+                        <span>x</span>
+                        <input type="text" name="randomNum" id="secondNumber" readonly>
+
+                        <br><br>
+                        <label for="yourAnswer">
+                            Your Answer:
+                            <input type="text" name="yourAnswer" id="yourAnswer" autocomplete="off">
+                        </label>
+                </fieldset>
+
+                <br>
+                <p><i>*Click the [Check Answer] or [Next Equation] buttons <br>to continue playing.</i></p>
+
+                <!--event handler added to Aheck Answer button to call the checkAnswer() function-->
+                <button type="button" onclick="checkAnswer()" id="checkAnsBtn" disabled>Check Answer</button>
+                <button type="button" onclick="playGame()" id="nextEqBtn" disabled>Next Equation</button>
+                <button type="button" id="end" onclick="findPercentageScore()">End</button>
+
+            <!--end of play area form-->
+            </form>
+
+        </section> <!--end of play section-->
+
+        <!--beginning of results section-->
+        <section class="glass-box" id="results">
+
+            <form action="#" method="post" id="resultsAreaForm">
+
+                <h2>&#x1F4CA;Statistics</h2>
+
+                <fieldset>
+
+                    <h3>Your Stats</h3>
+<!--
+                    <h4 id="dateTimeArea"></h4>
+-->
+                    <div id="dateTimeArea"></div>
+                    
+                    <p><i>The order of information in this box is: <br>First Name, Last Name, Birth Date, Age, Gender, Email <br> Total Questions, Total Correct Answers <br> and Total Incorrect Answers</i></p>
+
+
+                    <label> Your information 
+                        <textarea name="yourStatsArea" id="yourStatsArea" cols="30" rows="6" readonly></textarea>
+                    </label>
+
+                    <br><br>
+                    <p><i>Percentage Score is calculated by: <br> (Total Correct Answers/ Total Questions) * 100</i></p>
+                    <label for="showPercentage">Percentage Score
+                        <textarea name="showPercentage" id="showPercentage" cols="30" rows="4" readonly></textarea>
+                    </label>
+
+                    <br><br>
+                    <button type="button" onclick="findPercentageScore()" id="percentageScore">Percentage Score</button>
+
+
+                    <h3>All Players' Stats</h3>
+
+                    <table id="allStatsTable">
+                        <caption>Table showing all players' information
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Birth Date</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Email</th>
+                                <th>Total Questions</th>
+                                <th>Total Correct Answers</th>
+                                <th>Total Incorrect Answers</th>
+                            </tr>
+                        </thead>
+                        <tbody id="showAllPlayers"></tbody>
+                    </table>
+
+                </fieldset>
+
+                <h3>Charts</h3>
+                
+                <br>
+                <div>
+                    <div id="showChartsForGirls">
+                        <img src="chart-imgs/pink-girls-img.png" alt="placeholder for gender chart" width="20">
+                    </div>
+                    <p>female players</p>
+
+                    <div id="showChartsForBoys">
+                        <img src="chart-imgs/blue-boys-img.png" alt="" width="20">
+                    </div>
+                    <p>male players</p>
+                    <p><i>Chart showing the number of female to male players.</i></p>
+
+                    <br><br>
+
+                    <div id="showChartsFor8">
+                        <img src="chart-imgs/8-img.png" alt="placeholder for age chart" width="20"> 
+                    </div>
+                    <p>8 yr old players</p>
+
+                    <div id="showChartsFor9">
+                        <img src="chart-imgs/9-img.png" alt="placeholder for age chart" width="20">
+                    </div>
+                    <p>9 yr old players</p>
+
+                    <div id="showChartsFor10">
+                        <img src="chart-imgs/10-img.png" alt="placeholder for age chart" width="20">
+                    </div>
+                    <p>10 yr old players</p>
+
+                    <div id="showChartsFor11">
+                        <img src="chart-imgs/11-img.png" alt="placeholder for age chart" width="20">
+                    </div>
+                    <p>11 yr old players</p>
+
+                    <div id="showChartsFor12">
+                        <img src="chart-imgs/12-img.png" alt="placeholder for age chart" width="20">
+                    </div>
+                    <p>12 yr old players</p>
+                    <p><i>Chart showing the number of players in each age group.</i></p>
+                </div>
+
+            </form>
+
+        </section> <!--end of results section-->
+
+
+        <!--footer containing copyright, year and site creators (by last name)-->
+        <br><br>
+        <footer>
+            <p><i>"Dividing for now, but multiplying our memories later!"</i></p>
+            <p>Copyright © 2023. Creators: Burnett, Callam, Eastwood, Scott, Taylor</p>
+        </footer>
+
+    </body>
+</html>
