@@ -1,5 +1,7 @@
-Web Programming Group Assignment
-Multiplication Game Website using HTML, CSS and JavaScript
+# Circuit Cruncher
+
+## Web Programming Group Assignment
+### Multiplication Game Website using HTML, CSS and JavaScript
 
 The PDF included in the repo contains the storyboard and visual elements, a project plan outlining each member's contributions, and descriptions of each function/ module. It also includes an XHTML Validation Report.
 
